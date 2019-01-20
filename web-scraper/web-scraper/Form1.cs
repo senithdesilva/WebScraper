@@ -51,6 +51,7 @@ namespace web_scraper
                     if (!string.IsNullOrEmpty(uriAddress) && !string.IsNullOrEmpty(filePath) && !string.IsNullOrEmpty(fileName))
                     {
                         WebScraper.Scraper(uriAddress, filePath, fileName);
+                        Replay();
                     }
                     else
                     {
@@ -64,15 +65,15 @@ namespace web_scraper
 
                         if (result.Equals(System.Windows.Forms.DialogResult.Yes))
                         {
-                            numberOfClicks = 0;
-                            SetDefaultProperties();
+                            this.Hide();
+                            ReopenApplication();
                         }
                         else
                         {
                             this.Close();
                         }
-
                     }
+
                     break;
                 default:
                     break;
@@ -97,6 +98,33 @@ namespace web_scraper
             labelDescription.Text = labelUrl;
             labelDescription.TextAlign = ContentAlignment.MiddleCenter;
             labelDescription.AutoSize = true;
+        }
+
+        private void Replay()
+        {
+            string message = "Context Successfully Generated!\n" + "Do you want to Web Scrap again?";
+            string caption = "Generation Log";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result.Equals(System.Windows.Forms.DialogResult.Yes))
+            {
+                this.Hide();
+                ReopenApplication();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void ReopenApplication()
+        {
+            Form1 openForm = new Form1();
+            openForm.ShowDialog();
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Net;
-using System.Text;
 
 namespace web_scraper
 {
@@ -36,7 +34,6 @@ namespace web_scraper
                     }
                 }
             }
-
             return (responseContent);
         }
     }

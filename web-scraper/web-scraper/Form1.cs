@@ -63,14 +63,14 @@ namespace web_scraper
                         // Displays the MessageBox.
                         result = MessageBox.Show(message, caption, buttons);
 
-                        if (result.Equals(System.Windows.Forms.DialogResult.Yes))
+                        if (result.Equals(DialogResult.Yes))
                         {
-                            this.Hide();
+                            Hide();
                             ReopenApplication();
                         }
                         else
                         {
-                            this.Close();
+                            Close();
                         }
                     }
 
@@ -112,12 +112,12 @@ namespace web_scraper
 
             if (result.Equals(System.Windows.Forms.DialogResult.Yes))
             {
-                this.Hide();
+                Hide();
                 ReopenApplication();
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
